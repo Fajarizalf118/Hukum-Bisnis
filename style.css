@@ -36,6 +36,7 @@
         background-size: cover;
         background-position: center;
         background-image: url('https://cdn.prod.website-files.com/674ab654de930b217c6389ea/67fca669cfbfd1004a76b1f6_apa-itu-bisnis-internasional-2-1200x800.jpeg');
+    }
     header::before {
         content: '';
         position: absolute;
@@ -255,7 +256,4 @@
         header p {
             font-size: 1.1rem;
         }
-
     }
-
-
