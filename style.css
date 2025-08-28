@@ -1,0 +1,259 @@
+:root {
+        --bg-color: #f8f5f0;
+        --surface-color: #ffffff;
+        --primary-text-color: #333333;
+        --heading-color: #2c251e;
+        --secondary-color: #6b5b4b;
+        --accent-color: #b99767;
+        --shadow-color: rgba(44, 37, 30, 0.1);
+        --font-heading: 'Playfair Display', serif;
+        --font-body: 'Roboto', sans-serif;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: var(--font-body);
+        line-height: 1.8;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--primary-text-color);
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px 0;
+    }
+    
+    /* --- Header dengan Gambar Background --- */
+    header {
+        position: relative;
+        color: white;
+        padding: 8rem 1rem;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-image: url('https://www.google.com/imgres?q=bisnis%20internasional&imgurl=https%3A%2F%2Fcdn.prod.website-files.com%2F674ab654de930b217c6389ea%2F67fca669cfbfd1004a76b1f6_apa-itu-bisnis-internasional-2-1200x800.jpeg&imgrefurl=https%3A%2F%2Fwww.doku.com%2Fblog%2Fapa-itu-bisnis-internasional&docid=pq-tmg-0uQW8hM&tbnid=30_baZP76qx8cM&vet=12ahUKEwjs7NC9vq2PAxWKyjgGHShOBxUQM3oECBgQAA..i&w=1200&h=800&hcb=2&ved=2ahUKEwjs7NC9vq2PAxWKyjgGHShOBxUQM3oECBgQAA');
+    }
+    header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(44, 37, 30, 0.6); /* Overlay Gelap */
+        z-index: 1;
+    }
+    .header-content {
+        position: relative;
+        z-index: 2;
+    }
+    header h1 {
+        font-family: var(--font-heading);
+        font-weight: 800;
+        margin: 0;
+        font-size: 4.5rem;
+        letter-spacing: 2px;
+    }
+    header p {
+        font-size: 1.4rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin: 1rem auto 0 auto;
+    }
+
+    section {
+        background: var(--surface-color);
+        margin: 35px 0;
+        padding: 45px;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px var(--shadow-color);
+    }
+    h2, h3, h4 {
+        font-family: var(--font-heading);
+        color: var(--heading-color);
+    }
+    h2 {
+        font-size: 2.8rem;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    h3 {
+        font-size: 2rem;
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+    }
+    h4 {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    
+    /* --- Layout Tab dengan Gambar --- */
+    .tab-content-layout {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+    }
+    .tab-image {
+        flex: 1;
+        min-width: 300px;
+    }
+    .tab-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px var(--shadow-color);
+    }
+    .tab-text {
+        flex: 2;
+    }
+
+    .opinion {
+        background: var(--bg-color);
+        border-left: 5px solid var(--accent-color);
+        padding: 20px 30px;
+        margin: 20px 0;
+        font-style: italic;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .tab-buttons {
+        display: flex;
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 30px;
+    }
+    .tab-button {
+        padding: 15px 30px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        font-size: 1.2rem;
+        font-family: var(--font-heading);
+        color: var(--secondary-color);
+        position: relative;
+        transition: color 0.3s;
+    }
+    .tab-button::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: var(--accent-color);
+        transition: width 0.4s ease;
+    }
+    .tab-button.active {
+        color: var(--heading-color);
+    }
+    .tab-button.active::after {
+        width: 100%;
+    }
+    .tab-content {
+        display: none;
+        animation: fadeIn 0.7s ease;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Accordion */
+    .accordion-item {
+        margin-bottom: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+    .accordion-header {
+        background: var(--surface-color);
+        color: var(--heading-color);
+        padding: 20px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+    .accordion-header:hover {
+        background-color: var(--bg-color);
+    }
+    .accordion-icon {
+        font-size: 1.6rem;
+        color: var(--accent-color);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .accordion-item.active .accordion-icon {
+        transform: rotate(135deg);
+    }
+    .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    }
+    .accordion-body-content {
+        padding: 25px 0;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 100;
+        border: none;
+        background-color: var(--accent-color);
+        color: white;
+        cursor: pointer;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        font-size: 22px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    #scrollToTopBtn:hover {
+        background-color: var(--heading-color);
+        transform: translateY(-5px);
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: var(--heading-color);
+        color: var(--bg-color);
+        margin-top: 50px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tab-content-layout {
+            flex-direction: column;
+        }
+        .tab-image {
+            min-width: 100%;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+        }
+        header p {
+            font-size: 1.1rem;
+        }
+    }
